@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/kpis",
+      "handler": "Kpi.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/kpis/count",
+      "handler": "Kpi.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/kpis/:_id",
+      "handler": "Kpi.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

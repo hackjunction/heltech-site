@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/testimonials",
+      "handler": "Testimonial.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/testimonials/count",
+      "handler": "Testimonial.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/testimonials/:_id",
+      "handler": "Testimonial.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

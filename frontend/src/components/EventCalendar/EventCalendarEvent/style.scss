@@ -1,0 +1,73 @@
+@import '../../../styles/main';
+
+.EventCalendarEvent {
+    width: 600px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    background: var(--theme-color);
+    border-radius: 7px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 30px;
+
+    &--image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    &--link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        background-color: white;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.1;
+        }
+    }
+
+    &--content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 50px;
+        background: rgba(19,19,19, 0.4);
+        background: linear-gradient(110deg,rgba(19,19,19,.9),rgba(19,19,19,.4) 65%,rgba(19,19,19,.0));
+        
+        &__date {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        &__title {
+            @extend %font-title;
+            font-weight: bold;
+            font-size: 38px;
+            line-height: 44px;
+            margin-bottom: 20px;
+        }
+
+        &__location {
+            font-size: 22px;
+        }
+    }
+}

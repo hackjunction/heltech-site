@@ -1,0 +1,15 @@
+@import '../../styles/main';
+
+.Divider {
+	&-sm {
+		height: 50px;
+	}
+
+	&-md {
+		height: 90px;
+	}
+
+	&-lg {
+		height: 130px;
+	}
+}

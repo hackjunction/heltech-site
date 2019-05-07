@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/newsstories",
+      "handler": "Newsstory.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/newsstories/count",
+      "handler": "Newsstory.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/newsstories/:_id",
+      "handler": "Newsstory.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

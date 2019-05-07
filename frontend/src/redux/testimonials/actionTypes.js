@@ -1,0 +1,1 @@
+export const UPDATE_TESTIMONIALS = 'testimonials/UPDATE';

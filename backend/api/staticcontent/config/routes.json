@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/staticcontents",
+      "handler": "Staticcontent.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/staticcontents/count",
+      "handler": "Staticcontent.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/staticcontents/:_id",
+      "handler": "Staticcontent.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

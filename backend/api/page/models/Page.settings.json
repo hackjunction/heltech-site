@@ -1,0 +1,69 @@
+{
+  "connection": "default",
+  "collectionName": "page",
+  "info": {
+    "name": "page",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "navTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "pageTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "pageSubtitle": {
+      "default": "",
+      "type": "string"
+    },
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "slug": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "navPriority": {
+      "default": 10,
+      "type": "integer",
+      "required": true
+    },
+    "navSection": {
+      "default": "",
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "home",
+        "events",
+        "community",
+        "none"
+      ]
+    },
+    "topSectionTitle": {
+      "default": "",
+      "type": "string"
+    },
+    "topSectionSubtitle": {
+      "default": "",
+      "type": "text"
+    },
+    "topSectionBody": {
+      "default": "",
+      "type": "text"
+    },
+    "headerImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

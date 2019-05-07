@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/api/contactrequests",
+      "handler": "Contactrequest.create",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

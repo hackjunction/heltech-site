@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/pages",
+      "handler": "Page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/pages/count",
+      "handler": "Page.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/pages/:_id",
+      "handler": "Page.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

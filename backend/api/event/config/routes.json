@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/events",
+      "handler": "Event.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/events/count",
+      "handler": "Event.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/events/:_id",
+      "handler": "Event.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
