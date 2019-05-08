@@ -14,6 +14,7 @@ import ImageBlockSection from '../../components/ImageBlockSection';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
 import ContactForm from '../../components/ContactForm';
+import SingleColumnSection from '../../components/SingleColumnSection'
 
 import Page from '../PageHOC';
 
@@ -62,6 +63,8 @@ class ParticipantsPage extends PureComponent {
                     <Markdown sourceKey={KEYS.getHiredBody} />
                 </BlockSection>
                 <Divider lg />
+                <SingleColumnSection title="Intrested in becoming a speaker?">
+			    </SingleColumnSection>
                 <ContactForm />
                 <Divider lg />
             </Page>

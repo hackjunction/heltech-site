@@ -9,6 +9,7 @@ import BasicHeader from '../../components/HeaderImage/BasicHeader';
 import EventCalendar from '../../components/EventCalendar';
 import Divider from '../../components/Divider';
 import NewsLetterForm from '../../components/NewsLetterForm';
+import SingleColumnSection from '../../components/SingleColumnSection';
 
 import Page from '../PageHOC';
 
@@ -22,6 +23,8 @@ class CalendarPage extends PureComponent {
                 >
                     <BasicHeader titleKey={KEYS.calendarPageTitle} bodyKey={KEYS.calendarPageSubtitle} />
                 </HeaderImage>
+                <SingleColumnSection title="Here you will find a list of coming events:">
+                </SingleColumnSection>
                 <EventCalendar />
                 <Divider lg />
                 <NewsLetterForm />
