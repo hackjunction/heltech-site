@@ -78,11 +78,8 @@ class Footer extends PureComponent {
                             {this.renderExtraPageLinks(homePages)}
                         </div>
                         <div className="FooterInner--right__section">
-                            <Link to="/concepts">
-                                <h5 className="FooterInner--right__section-title">Events</h5>
-                            </Link>
+                            <h5 className="FooterInner--right__section-title">Events</h5>
                             {this.renderConceptLinks(eventConcepts)}
-                            {this.renderExtraPageLinks(eventPages)}
                         </div>
                         <div className="FooterInner--right__section">
                             <h5 className="FooterInner--right__section-title">Community</h5>

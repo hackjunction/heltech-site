@@ -30,13 +30,13 @@ const BOTTOM_LINKS = [
         linkText: 'Calendar'
     },
     {
-        imageKey: MEDIA_KEYS.partnerPageHeaderImage,
+        imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
         imageAlt: 'Link',
         linkTo: '/Story',
         linkText:  'About us'
     },
     {
-        imageKey: MEDIA_KEYS.volunteerPageHeaderImage,
+        imageKey: MEDIA_KEYS.partnerPageHeaderImage,
         imageAlt: 'Link',
         linkTo: '/partners',
         linkText: 'For partners'
@@ -68,13 +68,7 @@ const HomePage = () => {
             <Divider lg />
             <ImageLinks
                     links={BOTTOM_LINKS}
-                />
-            <Divider lg />
-            <BlockSection titleKey={KEYS.storiesAboutUsTitle} subtitleKey={KEYS.storiesAboutUsSubtitle}>
-                <StoryGrid />
-            </BlockSection>
-            
-            
+                />        
         </Page>
     );
 };
