@@ -48,6 +48,8 @@ class StoryPage extends PureComponent {
                     imageKey={MEDIA_KEYS.storyPageHeaderImage}
                     alt="Header image"
                 >
+            <CenteredBlock>
+            </CenteredBlock>
                     <BasicHeader titleKey={KEYS.storyPageTitle} bodyKey={KEYS.storyPageSubtitle} />
                 </HeaderImage>
                 <BlockSection titleKey={KEYS.whatIsJunctionTitle} subtitleKey={KEYS.whatIsJunctionSubtitle}>

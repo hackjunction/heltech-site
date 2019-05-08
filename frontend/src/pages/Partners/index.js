@@ -101,6 +101,9 @@ class PartnersPage extends PureComponent {
                     <PartnerLogoGrid />
                 </BlockSection>
                 <Divider lg />
+                <SingleColumnSection title="Intrested in becoming a partner?">
+				<BorderedSection content="Drop us a message!" />
+			    </SingleColumnSection>
                 <ContactForm />
                 <Divider lg />
             </Page >

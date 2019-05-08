@@ -73,8 +73,6 @@ const HomePage = () => {
             <BlockSection titleKey={KEYS.storiesAboutUsTitle} subtitleKey={KEYS.storiesAboutUsSubtitle}>
                 <StoryGrid />
             </BlockSection>
-            <Divider lg />
-            <Divider lg />
             
             
         </Page>

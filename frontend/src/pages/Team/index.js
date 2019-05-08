@@ -91,8 +91,6 @@ const TeamPage= () => {
             <SingleColumnSection title="And our lovely volunteers! 💕">
 				<BorderedSection content="Who work to bring you these events!" />
 			</SingleColumnSection>
-            <CenteredBlock>
-            </CenteredBlock>
         </Page>
     );
 };

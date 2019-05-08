@@ -96,12 +96,10 @@ class Footer extends PureComponent {
                         </div>
                         <div className="FooterInner--right__section">
                             <h5 className="FooterInner--right__section-title">Legal</h5>
-                            <Link className="FooterInner--right__section-link" to="/policy">
-                                Privacy Policy
-                        </Link>
-                            <Link className="FooterInner--right__section-link" to="/terms">
-                                Terms & Conditions
-                        </Link>
+                            <a href="https://www.hackjunction.com/policy" alt="policy"><h5 className="FooterInner--right__section-title">Privacy policy</h5></a>
+                        <a href="https://www.hackjunction.com/terms" alt="terms">
+                            <h5 className="FooterInner--right__section-title">Terms & Conditions</h5>
+                        </a>
                         </div>
                     </nav>
                 </div>
