@@ -13,7 +13,7 @@ import RomanNumeralList from '../../components/RomanNumeralList';
 import ImageBlockSection from '../../components/ImageBlockSection';
 import Divider from '../../components/Divider';
 import Markdown from '../../components/Markdown';
-import NewsLetterForm from '../../components/NewsLetterForm';
+import ContactForm from '../../components/ContactForm';
 
 import Page from '../PageHOC';
 
@@ -28,7 +28,7 @@ class ParticipantsPage extends PureComponent {
         const testimonial = testimonials.length > 0 ? testimonials[0] : null;
 
         return (
-            <Page className="ParticipantsPage" pageTitle="For participants" metaDescKey={KEYS.participantsPageSubtitle}>
+            <Page className="ParticipantsPage" pageTitle="For speakers" metaDescKey={KEYS.participantsPageSubtitle}>
                 <HeaderImage
                     imageKey={MEDIA_KEYS.participantPageHeaderImage}
                     alt="Header image"
@@ -62,7 +62,7 @@ class ParticipantsPage extends PureComponent {
                     <Markdown sourceKey={KEYS.getHiredBody} />
                 </BlockSection>
                 <Divider lg />
-                <NewsLetterForm />
+                <ContactForm />
                 <Divider lg />
             </Page>
         )

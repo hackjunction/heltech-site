@@ -71,7 +71,7 @@ const NavMenuInner = React.memo(({ eventConcepts, homePages, eventPages, communi
                     For partners
                         </Link>
                 <Link className="NavMenu--inner__menu-item" to="/participants">
-                    For participants
+                    For speakers
                         </Link>
                 
                 <ExtraPagesSection pages={communityPages} />

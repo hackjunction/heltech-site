@@ -15,6 +15,9 @@ import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid'
 import StoryGrid from '../../components/LinkGrid/StoryGrid'
 import ImageLinks from '../../components/ImageLinks';
 import ReversedSection from '../../components/ReversedSection'
+import EventCalendar from '../../components/EventCalendar'
+import SingleColumnSection from '../../components/SingleColumnSection'
+import BorderedSection from '../../components/BorderedSection'
 
 import Page from '../PageHOC';
 import LinkButton from '../../components/LinkButton/index';
@@ -51,8 +54,10 @@ const HomePage = () => {
             <Divider lg />
             <BlockSection titleKey={KEYS.whatWeDo} subtitleKey={KEYS.whatWeDoSubtitle}>
                 <Markdown sourceKey={KEYS.whatWeDoBody} />
-                <ConceptsPreview />
             </BlockSection>
+            <SingleColumnSection className="column" title="Up coming events:">
+			</SingleColumnSection>
+            <EventCalendar />
             <Divider lg />
             <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle} >
                 <PartnerLogoGrid />
