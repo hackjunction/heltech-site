@@ -55,7 +55,7 @@ const HomePage = () => {
             <BlockSection titleKey={KEYS.whatWeDo} subtitleKey={KEYS.whatWeDoSubtitle}>
                 <Markdown sourceKey={KEYS.whatWeDoBody} />
             </BlockSection>
-            <SingleColumnSection className="column" title="Up coming events:">
+            <SingleColumnSection className="column" title="Upcoming events:">
 			</SingleColumnSection>
             <EventCalendar />
             <Divider lg />
