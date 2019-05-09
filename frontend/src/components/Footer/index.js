@@ -92,7 +92,9 @@ class Footer extends PureComponent {
                             {this.renderExtraPageLinks(communityPages)}
                         </div>
                         <div className="FooterInner--right__section">
-                            <h5 className="FooterInner--right__section-title">Legal</h5>
+                        <a href="https://medium.com/heltech" alt="terms">
+                            <h5 className="FooterInner--right__section-title">Blog</h5>
+                        </a>
                             <a href="https://www.hackjunction.com/policy" alt="policy"><h5 className="FooterInner--right__section-title">Privacy policy</h5></a>
                         <a href="https://www.hackjunction.com/terms" alt="terms">
                             <h5 className="FooterInner--right__section-title">Terms & Conditions</h5>
