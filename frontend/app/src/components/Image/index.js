@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Image as CloudinaryImage, Transformation } from 'cloudinary-react'
+import { Image as CloudinaryImage } from 'cloudinary-react'
 import './style.scss'
 
 class Image extends PureComponent {
@@ -29,15 +29,17 @@ class Image extends PureComponent {
 				<CloudinaryImage
 					className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
 					alt={alt}
-					width={width}
-					height={height}
 					publicId={image.public_id}
-					crop={crop}
-					gravity={gravity}
 					onLoad={this.setLoaded}
-				>
-					<Transformation fetch_format="auto" quality="auto" />
-				</CloudinaryImage>
+					transformation={{
+						quality: 'auto',
+						fetchFormat: 'auto',
+						width,
+						height,
+						crop,
+						gravity
+					}}
+				/>
 			)
 		}
 

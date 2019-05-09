@@ -1,28 +1,24 @@
 {
-  "name": "hackjunctionsite",
+  "name": "heltechsite",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "npm install -g yarn && yarn install && cd backend && npm install && cd ../frontend && yarn install && cd ..",
-    "dev": "concurrently --kill-others \"npm run dev-frontend\" \"npm run dev-backend\"",
-    "dev-backend": "cd backend && strapi start",
-    "dev-frontend": "cd frontend && yarn start",
-    "heroku-postbuild": "cd frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "setup": "cd frontend/app && yarn install",
+    "dev": "cd frontend/app && yarn start",
+    "heroku-postbuild": "cd frontend/app && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "node server.js"
   },
   "author": "Juuso Lappalainen",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0"
-  },
+  "devDependencies": {},
   "engines": {
     "node": "10.7.0"
   },
   "dependencies": {
     "express": "^4.16.4",
-    "express-sslify": "^1.2.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "prerendercloud": "^1.42.0"
   }
 }
