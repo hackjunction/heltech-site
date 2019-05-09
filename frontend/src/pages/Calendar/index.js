@@ -23,7 +23,7 @@ class CalendarPage extends PureComponent {
                 >
                     <BasicHeader titleKey={KEYS.calendarPageTitle} bodyKey={KEYS.calendarPageSubtitle} />
                 </HeaderImage>
-                <SingleColumnSection title="Here you will find a list of coming events:">
+                <SingleColumnSection title="Here you will find a list of our coming events:">
                 </SingleColumnSection>
                 <EventCalendar />
                 <Divider lg />
