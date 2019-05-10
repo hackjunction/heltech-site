@@ -3,17 +3,15 @@ var express = require('express'),
 	path = require('path'),
 	port = process.env.PORT || 3000;
 
-// if (process.env.NODE_ENV === 'production') {
-// 	var enforce = require('express-sslify');
-// 	app.use(enforce.HTTPS({ trustProtoHeader: true }));
-// }
+//Prerender
+app.use(require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN));
 
 // Serve any static files
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use(express.static(path.join(__dirname, 'app/build')));
+
 // Handle React routing, return all requests to React app
 app.get('*', function (req, res) {
-	res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+	res.sendFile(path.join(__dirname, 'app/build', 'index.html'));
 });
 
 app.listen(port);
-console.log('Listening on port', port);

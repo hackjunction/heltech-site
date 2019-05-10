@@ -1,6 +1,6 @@
 {
-	"name": "hackjunctionsite",
-	"repository": "https://github.com/hackjunction/hackjunctioncom",
+	"name": "heltechsite",
+	"repository": "https://github.com/hackjunction/heltech-site",
 	"buildpacks": [
 		{
 			"url": "https://github.com/heroku/heroku-buildpack-nodejs"
