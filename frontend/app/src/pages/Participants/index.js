@@ -36,32 +36,6 @@ class ParticipantsPage extends PureComponent {
                 >
                     <BasicHeader titleKey={KEYS.participantsPageTitle} bodyKey={KEYS.participantsPageSubtitle} />
                 </HeaderImage>
-                <BlockSection titleKey={KEYS.howToJoinTitle} subtitleKey={KEYS.howToJoinSubtitle}>
-                    <RomanNumeralList itemKeys={[
-                        KEYS.howToJoinStepOne,
-                        KEYS.howToJoinStepTwo,
-                        KEYS.howToJoinStepThree,
-                        KEYS.howToJoinStepFour,
-                        KEYS.howToJoinStepFive
-                    ]} />
-                </BlockSection>
-                <Divider lg />
-                {testimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={testimonial.image}
-                            imageAlt={testimonial.name}
-                            title={testimonial.name}
-                            subtitle={testimonial.subtitle}
-                        >
-                            <Markdown source={testimonial.quote} />
-                        </ImageBlockSection>
-                        <Divider lg />
-                    </React.Fragment>
-                ) : null}
-                <BlockSection titleKey={KEYS.getHiredTitle} subtitleKey={KEYS.getHiredSubtitle}>
-                    <Markdown sourceKey={KEYS.getHiredBody} />
-                </BlockSection>
                 <Divider lg />
                 <SingleColumnSection title="Intrested in becoming a speaker?">
 			    </SingleColumnSection>
