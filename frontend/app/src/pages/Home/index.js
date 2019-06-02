@@ -59,7 +59,6 @@ const HomePage = () => {
             <SingleColumnSection className="column" title="Upcoming events:">
 			</SingleColumnSection>
             <EventCalendar />
-            <Divider lg />
             <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle} >
                 <PartnerLogoGrid />
                 <Divider sm />
