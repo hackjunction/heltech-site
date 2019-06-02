@@ -73,12 +73,10 @@ class PartnersPage extends PureComponent {
                         contentKey={KEYS.whyPartnerWithUsThirdBody}
                     />
                 </SingleColumnSection>
-                <Divider lg />
                 <React.Fragment>
                     <CenteredBlock>
                         <Markdown sourceKey={KEYS.partnersPageVideo} />
                     </CenteredBlock>
-                    <Divider lg />
                 </React.Fragment>
                 {secondTestimonial ? (
                     <React.Fragment>
@@ -90,17 +88,14 @@ class PartnersPage extends PureComponent {
                         >
                             <Markdown source={secondTestimonial.quote} />
                         </ImageBlockSection>
-                        <Divider lg />
                     </React.Fragment>
                 ) : null}
                 <BlockSection titleKey={KEYS.whatMakesUsDifferentTitle} subtitleKey={KEYS.whatMakesUsDifferentSubtitle}>
                     <Markdown sourceKey={KEYS.whatMakesUsDifferentBody} />
                 </BlockSection>
-                <Divider lg />
                 <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle}>
                     <PartnerLogoGrid />
                 </BlockSection>
-                <Divider lg />
                 <SingleColumnSection title="Intrested in becoming a partner?">
 			    </SingleColumnSection>
                 <ContactForm />
