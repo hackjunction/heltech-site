@@ -45,7 +45,6 @@ class PartnersPage extends PureComponent {
                     <Markdown sourceKey={KEYS.partnersPageFirstBody} />
                     <StatBlocks type="partner" />
                 </BlockSection>
-                <Divider lg />
                 {firstTestimonial ? (
                     <React.Fragment>
                         <ImageBlockSection
