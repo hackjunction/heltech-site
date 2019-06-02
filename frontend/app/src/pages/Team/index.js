@@ -81,7 +81,7 @@ const TeamPage= () => {
 				title="Joonas Remes"
 				subtitle="Espoo, Finland."
 				socialImg={require('../../assets/logos/social/linkedin-white.png')}
-				socialLink="https://www.linkedin.com/in/joonas-r-1aabb6a6/"
+				socialLink=""
 			>	<p><b>Marketing</b></p>
 				<p>
 				<u>joonas.remes@hackjunction.com</u>
