@@ -54,6 +54,8 @@ const CONTENT_KEYS = {
 	whyPartnerWithUsSecondBody: 'whyPartnerWithUsSecondBody',
 	whyPartnerWithUsThirdTitle: 'whyPartnerWithUsThirdTitle',
 	whyPartnerWithUsThirdBody: 'whyPartnerWithUsThirdBody',
+	whyPartnerWithUsFourthTitle: 'whyPartnerWithUsFourthTitle',
+	whyPartnerWithUsFourthBody: '	whyPartnerWithUsFourthBody',
 	whatMakesUsDifferentTitle: 'whatMakesUsDifferentTitle',
 	whatMakesUsDifferentSubtitle: 'whatMakesUsDifferentSubtitle',
 	whatMakesUsDifferentBody: 'whatMakesUsDifferentBody',

@@ -133,7 +133,7 @@ module.exports = {
       strapi.plugins['email'].services.email.send({
         to: strapi.config.currentEnvironment.partnerFormEmail,
         from: 'contact-form@heltech.org',
-        replyTo: 'no-reply@heltech.org',
+        replyTo: 'heltech@hackjunction.com',
         subject: 'heltech.org | Hello from ' + name,
         html: msg.renderHTML(),
       });
