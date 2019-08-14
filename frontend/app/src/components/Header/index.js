@@ -42,6 +42,13 @@ const Header = ({ toggleSidebar, navTitle }) => {
                 <div className="Header--nav-title">
                     <h1 className="Header--nav-title__text">{navTitle}</h1>
                 </div>
+                <div className="Header--emblem">
+                    <img
+                        className="Header--emblem__image"
+                        src={require('../../assets/logos/emblem_white.png')}
+                        alt="Heltech Logo"
+                    />
+                </div>
                 <NavMenu />
             </header>
         </React.Fragment>
