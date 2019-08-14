@@ -52,26 +52,10 @@ const TeamPage= () => {
 				socialLink="https://fi.linkedin.com/in/maijuaspegren"
 			>
 				<p>
-					Head of Parnerships
+					Head of Partnerships
 				</p>
 				<p>
 					<u>maiju.aspegren@hackjunction.com</u>
-				</p>
-				
-			</ImageBlockSection>
-			<ImageBlockSection
-				imageSrc={require('../../assets/images/joose-headshot.jpg')}
-				imagAlt={'Joose Toiviainen'}
-				title="Joose Toiviainen"
-				subtitle="Helsinki, Finland."
-				socialImg={require('../../assets/logos/social/linkedin-white.png')}
-				socialLink="https://www.linkedin.com/in/joosetoiviainen/"
-			>
-				<p>
-					Partnerships
-				</p>
-				<p>
-					<u>joose.toiviainen@hackjunction.com</u>
 				</p>
 				
 			</ImageBlockSection>
