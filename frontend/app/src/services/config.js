@@ -10,4 +10,6 @@ const config = {
     IS_DEBUG: DEBUG_HOSTNAMES.indexOf(window.location.hostname) !== -1
 };
 
+console.log('CONFIG', config);
+
 export default config;
