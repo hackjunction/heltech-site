@@ -1,3 +1,3 @@
-# backend@25
+# Strapi application
 
-A quick description of backend@25.
+A quick description of your strapi application

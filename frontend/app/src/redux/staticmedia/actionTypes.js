@@ -1,1 +1,0 @@
-export const UPDATE_STATIC_MEDIA = 'staticmedia/UPDATE';

@@ -7,24 +7,25 @@ import { Link } from 'react-router-dom';
 import SocialMediaIcons from '../SocialMediaIcons';
 import Divider from '../Divider';
 
-import { content as selectContent } from '../../redux/staticcontent/selectors';
-import KEYS from '../../redux/staticcontent/keys';
+import * as ContentSelectors from '../../redux/staticcontent/selectors';
+
 import {
     homePages,
     eventPages,
-    communityPages,
-} from '../../redux/pages/selectors';
+    communityPages
+} from '../../redux/dynamiccontent/selectors';
 
-import {
-    eventconceptsByPriority,
-} from '../../redux/eventconcepts/selectors'
+import { eventconceptsByPriority } from '../../redux/dynamiccontent/selectors';
 
 class Footer extends PureComponent {
-
     renderConceptLinks(eventConcepts) {
         return eventConcepts.map(concept => {
             return (
-                <Link key={concept.slug} className="FooterInner--right__section-link" to={`/concepts/${concept.slug}`}>
+                <Link
+                    key={concept.slug}
+                    className="FooterInner--right__section-link"
+                    to={`/concepts/${concept.slug}`}
+                >
                     {concept.name}
                 </Link>
             );
@@ -34,16 +35,26 @@ class Footer extends PureComponent {
     renderExtraPageLinks(pages) {
         return pages.map(page => {
             return (
-                <Link key={page.slug} className="FooterInner--right__section-link" to={`/${page.slug}`}>
+                <Link
+                    key={page.slug}
+                    className="FooterInner--right__section-link"
+                    to={`/${page.slug}`}
+                >
                     {page.navTitle}
                 </Link>
             );
         });
     }
 
-
     render() {
-        const { siteSlogan, siteContactEmail, eventConcepts, homePages, eventPages, communityPages } = this.props;
+        const {
+            siteSlogan,
+            siteContactEmail,
+            eventConcepts,
+            homePages,
+            eventPages,
+            communityPages
+        } = this.props;
         return (
             <footer className="Footer">
                 <div className="FooterInner">
@@ -53,8 +64,13 @@ class Footer extends PureComponent {
                             src={require('../../assets/logos/black_heltech_logo.png')}
                             alt="Junction logo"
                         />
-                        <p className="FooterInner--left__slogan">{siteSlogan}</p>
-                        <a className="FooterInner--left__contact" href={`mailto:${siteContactEmail}`}>
+                        <p className="FooterInner--left__slogan">
+                            {siteSlogan}
+                        </p>
+                        <a
+                            className="FooterInner--left__contact"
+                            href={`mailto:${siteContactEmail}`}
+                        >
                             {siteContactEmail}
                         </a>
                         <Divider sm />
@@ -64,37 +80,70 @@ class Footer extends PureComponent {
                     <nav className="FooterInner--right">
                         <div className="FooterInner--right__section">
                             <Link to="/">
-                                <h5 className="FooterInner--right__section-title">Home</h5>
+                                <h5 className="FooterInner--right__section-title">
+                                    Home
+                                </h5>
                             </Link>
-                            <Link className="FooterInner--right__section-link" to="/story">
+                            <Link
+                                className="FooterInner--right__section-link"
+                                to="/story"
+                            >
                                 Story
-                        </Link>
-                            <Link className="FooterInner--right__section-link" to="/calendar">
+                            </Link>
+                            <Link
+                                className="FooterInner--right__section-link"
+                                to="/calendar"
+                            >
                                 Calendar
-                        </Link>
-                            <Link className="FooterInner--right__section-link" to="/team">
+                            </Link>
+                            <Link
+                                className="FooterInner--right__section-link"
+                                to="/team"
+                            >
                                 Team
-                        </Link>
+                            </Link>
                             {this.renderExtraPageLinks(homePages)}
                         </div>
                         <div className="FooterInner--right__section">
-                            <h5 className="FooterInner--right__section-title">Community</h5>
-                            <Link className="FooterInner--right__section-link" to="/partners">
+                            <h5 className="FooterInner--right__section-title">
+                                Community
+                            </h5>
+                            <Link
+                                className="FooterInner--right__section-link"
+                                to="/partners"
+                            >
                                 For partners
-                        </Link>
-                            <Link className="FooterInner--right__section-link" to="/participants">
+                            </Link>
+                            <Link
+                                className="FooterInner--right__section-link"
+                                to="/participants"
+                            >
                                 For speakers
-                        </Link>
+                            </Link>
                             {this.renderExtraPageLinks(communityPages)}
                         </div>
                         <div className="FooterInner--right__section">
-                        <a href="https://medium.com/heltech" alt="terms">
-                            <h5 className="FooterInner--right__section-title">Blog</h5>
-                        </a>
-                            <a href="https://www.hackjunction.com/policy" alt="policy"><h5 className="FooterInner--right__section-title">Privacy policy</h5></a>
-                        <a href="https://www.hackjunction.com/terms" alt="terms">
-                            <h5 className="FooterInner--right__section-title">Terms & Conditions</h5>
-                        </a>
+                            <a href="https://medium.com/heltech" alt="terms">
+                                <h5 className="FooterInner--right__section-title">
+                                    Blog
+                                </h5>
+                            </a>
+                            <a
+                                href="https://www.hackjunction.com/policy"
+                                alt="policy"
+                            >
+                                <h5 className="FooterInner--right__section-title">
+                                    Privacy policy
+                                </h5>
+                            </a>
+                            <a
+                                href="https://www.hackjunction.com/terms"
+                                alt="terms"
+                            >
+                                <h5 className="FooterInner--right__section-title">
+                                    Terms & Conditions
+                                </h5>
+                            </a>
                         </div>
                     </nav>
                 </div>
@@ -103,30 +152,29 @@ class Footer extends PureComponent {
                         Designed and developed with{' '}
                         <span role="img" aria-label="love">
                             💕
-                    </span>{' '}
+                        </span>{' '}
                         &{' '}
                         <span role="img" aria-label="coffee">
                             ☕
-                    </span>{' '}
+                        </span>{' '}
                         by the Junction Team.
-                </span>
+                    </span>
                 </div>
             </footer>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    const content = selectContent(state);
-
+const mapStateToProps = state => {
+    const getText = ContentSelectors.buildGetText(state);
     return {
-        siteSlogan: content[KEYS.siteSlogan],
-        siteContactEmail: content[KEYS.siteContactEmail],
+        siteSlogan: getText('siteSlogan'),
+        siteContactEmail: getText('siteContactEmail'),
         homePages: homePages(state),
         eventPages: eventPages(state),
         communityPages: communityPages(state),
-        eventConcepts: eventconceptsByPriority(state),
-    }
-}
+        eventConcepts: eventconceptsByPriority(state)
+    };
+};
 
 export default connect(mapStateToProps)(Footer);

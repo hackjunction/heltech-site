@@ -1,55 +1,60 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
+import React, { PureComponent } from "react";
+import "./style.scss";
+import { connect } from "react-redux";
 
-import { connect } from 'react-redux';
+import HeaderImage from "../../components/HeaderImage";
+import BasicHeader from "../../components/HeaderImage/BasicHeader";
 
-import KEYS from '../../redux/staticcontent/keys';
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import Divider from "../../components/Divider";
+import ContactForm from "../../components/ContactForm";
+import SingleColumnSection from "../../components/SingleColumnSection";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import BlockSection from '../../components/BlockSection';
-import RomanNumeralList from '../../components/RomanNumeralList';
-import ImageBlockSection from '../../components/ImageBlockSection';
-import Divider from '../../components/Divider';
-import Markdown from '../../components/Markdown';
-import ContactForm from '../../components/ContactForm';
-import SingleColumnSection from '../../components/SingleColumnSection'
+import * as ContentSelectors from "../../redux/staticcontent/selectors";
 
-import Page from '../PageHOC';
+import Page from "../PageHOC";
 
+/* 
 import {
     participantTestimonials,
 } from '../../redux/testimonials/selectors';
-
+ */
 class ParticipantsPage extends PureComponent {
-    render() {
+  render() {
+    const { getText, getMedia } = this.props;
+    /* const { testimonials } = this.props;
+        const testimonial = testimonials.length > 0 ? testimonials[0] : null; */
 
-        const { testimonials } = this.props;
-        const testimonial = testimonials.length > 0 ? testimonials[0] : null;
-
-        return (
-            <Page className="ParticipantsPage" pageTitle="For speakers" metaDescKey={KEYS.participantsPageSubtitle}>
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.participantPageHeaderImage}
-                    alt="Header image"
-                >
-                    <BasicHeader titleKey={KEYS.participantsPageTitle} bodyKey={KEYS.participantsPageSubtitle} />
-                </HeaderImage>
-                <Divider lg />
-                <SingleColumnSection title="Intrested in becoming a speaker?">
-			    </SingleColumnSection>
-                <ContactForm />
-                <Divider lg />
-            </Page>
-        )
-    }
+    return (
+      <Page
+        className="ParticipantsPage"
+        pageTitle="For speakers"
+        metaDesc={getText("participantsPageSubtitle")} //empty
+      >
+        <HeaderImage
+          image={getMedia("participantPageHeaderImage")} //empty
+          alt="Header image"
+        >
+          <BasicHeader
+            title={getText("participantsPageTitle")} //empty
+            body={getText("participantsPageSubtitle")} //empty
+          />
+        </HeaderImage>
+        <Divider lg />
+        <SingleColumnSection title="Interested in becoming a speaker?"></SingleColumnSection>
+        <ContactForm type="speaker" />
+        <Divider lg />
+      </Page>
+    );
+  }
 }
-
 const mapStateToProps = state => ({
+  getText: ContentSelectors.buildGetText(state),
+  getMedia: ContentSelectors.buildGetMedia(state)
+});
+export default connect(mapStateToProps)(ParticipantsPage);
+
+/* const mapStateToProps = state => ({
     testimonials: participantTestimonials(state),
 });
 
-export default connect(
-    mapStateToProps
-)(ParticipantsPage);
+ */

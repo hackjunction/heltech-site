@@ -4,14 +4,16 @@
     "default": {
       "connector": "strapi-hook-mongoose",
       "settings": {
-        "client": "mongo",
+        "database": "backend",
         "host": "127.0.0.1",
+        "srv": false,
         "port": 27017,
-        "database": "heltech",
         "username": "",
         "password": ""
       },
-      "options": {}
+      "options": {
+        "authenticationDatabase": ""
+      }
     }
   }
 }

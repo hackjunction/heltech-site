@@ -1,22 +1,58 @@
 @import '../../styles/main';
 
 .LinkGrid {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	
-	&--item {
-		width: 50%;
-		min-width: 300px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
 
-		&__image {
-			width: 80%;
-			object-fit: contain;
-			object-position: center;
-		}
-	}
+    &--item {
+        width: 50%;
+        min-width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: red;
+
+        &__image {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+.PartnersGrid {
+    margin-left: -$padding-page;
+    margin-right: -$padding-page;
+
+    padding: $padding-page;
+
+    &--inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 980px;
+    }
+}
+
+.PartnersGrid--partner {
+    margin: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+
+    &__img {
+        object-fit: contain;
+        width: 80%;
+        height: 80%;
+    }
 }

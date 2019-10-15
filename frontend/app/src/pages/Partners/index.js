@@ -1,113 +1,99 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
+import React, { PureComponent } from "react";
+import "./style.scss";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import KEYS from '../../redux/staticcontent/keys';
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import HeaderImage from "../../components/HeaderImage";
+import BasicHeader from "../../components/HeaderImage/BasicHeader";
+import BlockSection from "../../components/BlockSection/";
+import SingleColumnSection from "../../components/SingleColumnSection/";
+import BorderedSection from "../../components/BorderedSection/";
+import ContactForm from "../../components/ContactForm/";
+import Divider from "../../components/Divider";
+import Markdown from "../../components/Markdown";
+import PartnerLogoGrid from "../../components/LinkGrid/PartnerLogoGrid";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import BlockSection from '../../components/BlockSection/';
-import ImageBlockSection from '../../components/ImageBlockSection/';
-import SingleColumnSection from '../../components/SingleColumnSection/';
-import BorderedSection from '../../components/BorderedSection/';
-import ContactForm from '../../components/ContactForm/';
-import StatBlocks from '../../components/StatBlocks';
-import Divider from '../../components/Divider';
-import Markdown from '../../components/Markdown';
-import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
+import Page from "../PageHOC";
+import CenteredBlock from "../../components/CenteredBlock/index";
 
-import Page from '../PageHOC';
-import CenteredBlock from '../../components/CenteredBlock/index';
+import * as ContentSelectors from "../../redux/staticcontent/selectors";
 
-import {
-    partnerTestimonials,
-} from '../../redux/testimonials/selectors'
 
 class PartnersPage extends PureComponent {
+  render() {
 
-    render() {
+    const { getText, getMedia } = this.props;
+    return (
+      <Page
+        className="PartnersPage"
+        pageTitle="For partners"
+        metaDesc={getText("partnersPageSubtitle")}
+      >
+        <HeaderImage
+          image={getMedia("partnerPageHeaderImage")}
+          alt="Header image"
+        >
+          <BasicHeader
+            title={getText("partnersPageTitle")}
+            body={getText("partnersPageSubtitle")}
+          />
+        </HeaderImage>
+        <BlockSection
+          title={getText("partnersPageFirstTitle")}
+          subtitle={getText("partnersPageFirstSubtitle")}
+        >
+          <Markdown source={getText("partnersPageFirstBody")} />
+          
+        </BlockSection>
+  
+        <SingleColumnSection title={getText("whyPartnerWithUsTitle")}>
+          <BorderedSection
+            title={getText("whyPartnerWithUsFirstTitle")}
+            content={getText("whyPartnerWithUsFirstBody")}
+          />
+          <BorderedSection
+            title="RECRUITING" //whyPartnerWithUsSecondTitle
+            content="Get the chance to meet the top talents of many fields, build connections and gain relevant insights that will shape our lives with technology in the future.
+The tech events we host gain variety of guests from executive-level company representatives to top developers in their field. Many of our participants are also interested in open tech positions. Have a chat with them and see if they are interested in working at your company!
 
-        const { testimonials } = this.props;
-        const firstTestimonial = testimonials.length > 0 ? testimonials[0] : null;
-        const secondTestimonial = testimonials.length > 1 ? testimonials[1] : null;
+" //whyPartnerWithUsSecondBody
+          />
+          <BorderedSection
+            title="VISIBILITY" //whyPartnerWithUsThirdTitle
+            content="Gain recognition among thousands of top tech talents, other creative partner companies and media. Hel Tech is an exceptional way to personally enhance your image, and build a recognized brand as an attractive employer within a large tech community. Partnering with Hel Tech steers your public image towards one that is at the bleeding edge of technology.
 
-        return (
-            <Page className="PartnersPage" pageTitle="For partners" metaDescKey={KEYS.partnersPageSubtitle}>
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.partnerPageHeaderImage}
-                    alt="Header image"
-                >
-                    <BasicHeader titleKey={KEYS.partnersPageTitle} bodyKey={KEYS.partnersPageSubtitle} />
-                </HeaderImage>
-                <BlockSection titleKey={KEYS.partnersPageFirstTitle} subtitleKey={KEYS.partnersPageFirstSubtitle}>
-                    <Markdown sourceKey={KEYS.partnersPageFirstBody} />
-                    <StatBlocks type="partner" />
-                </BlockSection>
-                {firstTestimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={firstTestimonial.image}
-                            imageAlt={firstTestimonial.name}
-                            title={firstTestimonial.name}
-                            subtitle={firstTestimonial.subtitle}
-                        >
-                            <Markdown source={firstTestimonial.quote} />
-                        </ImageBlockSection>
-                        <Divider lg />
-                    </React.Fragment>
-                ) : null}
-                <SingleColumnSection titleKey={KEYS.whyPartnerWithUsTitle}>
-                    <BorderedSection
-                        titleKey={KEYS.whyPartnerWithUsFirstTitle}
-                        contentKey={KEYS.whyPartnerWithUsFirstBody}
-                    />
-                    <BorderedSection
-                        titleKey={KEYS.whyPartnerWithUsSecondTitle}
-                        contentKey={KEYS.whyPartnerWithUsSecondBody}
-                    />
-                    <BorderedSection
-                        titleKey={KEYS.whyPartnerWithUsThirdTitle}
-                        contentKey={KEYS.whyPartnerWithUsThirdBody}
-                    />
-                </SingleColumnSection>
-                <React.Fragment>
-                    <CenteredBlock>
-                        <Markdown sourceKey={KEYS.partnersPageVideo} />
-                    </CenteredBlock>
-                </React.Fragment>
-                {secondTestimonial ? (
-                    <React.Fragment>
-                        <ImageBlockSection
-                            image={secondTestimonial.image}
-                            imageAlt={secondTestimonial.name}
-                            title={secondTestimonial.name}
-                            subtitle={secondTestimonial.subtitle}
-                        >
-                            <Markdown source={secondTestimonial.quote} />
-                        </ImageBlockSection>
-                    </React.Fragment>
-                ) : null}
-                <BlockSection titleKey={KEYS.whatMakesUsDifferentTitle} subtitleKey={KEYS.whatMakesUsDifferentSubtitle}>
-                    <Markdown sourceKey={KEYS.whatMakesUsDifferentBody} />
-                </BlockSection>
-                <BlockSection titleKey={KEYS.previousPartnersTitle} subtitleKey={KEYS.previousPartnersSubtitle}>
-                    <PartnerLogoGrid />
-                </BlockSection>
-                <SingleColumnSection title="Intrested in becoming a partner?">
-			    </SingleColumnSection>
-                <ContactForm />
-                <Divider lg />
-            </Page >
-        );
-    }
+" //whyPartnerWithUsThirdBody
+          />
+        </SingleColumnSection>
+        <React.Fragment>
+          <CenteredBlock>
+            <Markdown source={getText("partnersPageVideo")} />
+          </CenteredBlock>
+        </React.Fragment>
+       
+        <BlockSection
+          title={getText("whatMakesUsDifferentTitle")}
+          subtitle={getText("whatMakesUsDifferentSubtitle")}
+        >
+          <Markdown source={getText("whatMakesUsDifferentBody")} />
+        </BlockSection>
+        <BlockSection
+          title={getText("previousPartnersTitle")}
+          subtitle={getText("previousPartnersSubtitle")}
+        >
+          <PartnerLogoGrid />
+        </BlockSection>
+        <SingleColumnSection title="Intrested in becoming a partner?"></SingleColumnSection>
+        <ContactForm />
+        <Divider lg />
+      </Page>
+    );
+  }
 }
-
 const mapStateToProps = state => ({
-    testimonials: partnerTestimonials(state),
+  getText: ContentSelectors.buildGetText(state),
+  getMedia: ContentSelectors.buildGetMedia(state)
 });
 
-export default connect(
-    mapStateToProps
-)(PartnersPage);
+export default connect(mapStateToProps)(PartnersPage);
+

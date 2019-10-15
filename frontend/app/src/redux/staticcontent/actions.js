@@ -1,17 +1,24 @@
-import * as ActionTypes from './actionTypes'
-import StaticContentService from '../../services/staticcontent'
-import { contentShouldUpdate } from './selectors'
+import * as ActionTypes from "./actionTypes";
+import * as GraphqlService from "../../services/graphql/client";
+import { shouldUpdate } from "./selectors";
 
 export const updateStaticContent = () => (dispatch, getState) => {
-	if (!contentShouldUpdate(getState())) {
-		return
-	}
+  if (!shouldUpdate(getState())) {
+    return;
+  }
 
-	dispatch({
-		type: ActionTypes.UPDATE_STATIC_CONTENT,
-		promise: StaticContentService.getAll(),
-		meta: {
-			onFailure: (e) => console.log('Error updating static content', e)
-		}
-	})
-}
+  dispatch({
+    type: ActionTypes.UPDATE_STATIC_CONTENT,
+    promise: GraphqlService.getStaticContent(),
+    meta: {
+      onFailure: e => console.log("Error updating events", e)
+    }
+  });
+};
+
+export const toggleEditorMode = value => dispatch => {
+  dispatch({
+    type: ActionTypes.TOGGLE_EDITOR_MODE,
+    payload: value
+  });
+};

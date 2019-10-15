@@ -1,0 +1,33 @@
+{
+  "connection": "default",
+  "collectionName": "speaker",
+  "info": {
+    "name": "speaker",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "topic": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "isOldSpeaker": {
+      "type": "boolean"
+    }
+  }
+}

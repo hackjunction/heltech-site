@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/teammembers",
+      "handler": "Teammember.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/teammembers/count",
+      "handler": "Teammember.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/teammembers/:_id",
+      "handler": "Teammember.findOne",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

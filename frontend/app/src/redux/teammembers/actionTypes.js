@@ -1,1 +1,0 @@
-export const UPDATE_TEAM_MEMBERS = 'teammembers/UPDATE';

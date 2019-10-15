@@ -1,1 +1,0 @@
-export const UPDATE_KPIS = 'kpis/UPDATE';

@@ -1,12 +1,12 @@
 {
-	"name": "heltechsite",
-	"repository": "https://github.com/hackjunction/heltech-site",
-	"buildpacks": [
-		{
-			"url": "https://github.com/heroku/heroku-buildpack-nodejs"
-		}
-	],
-	"env": {
-		"NPM_CONFIG_PRODUCTION": true
-	}
+  "name": "frontend",
+  "repository": "https://github.com/hackjunction/heltech-site",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": true
+  }
 }

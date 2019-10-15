@@ -1,79 +1,140 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
-import { Helmet } from 'react-helmet';
-import ReactGA from 'react-ga';
-import ReactPixel from 'react-facebook-pixel';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import "./style.scss";
+import { getText, getMedia } from "../../redux/staticcontent/helpers";
 
-import config from '../../services/config';
+import { Helmet } from "react-helmet";
+import { connect } from "react-redux";
+import cloudinary from "cloudinary-core";
+/* import { motion } from "framer-motion"; */
 
-import * as NavActions from '../../redux/nav/actions';
-import { content as selectContent } from '../../redux/staticcontent/selectors';
+import config from "../../config";
 
-class PageHOC extends PureComponent {
+import * as NavActions from "../../redux/dynamiccontent/actions";
 
-    componentDidMount() {
-        const { setNavTitle, pageTitle, toggleSidebar } = this.props;
+const cl = cloudinary.Cloudinary.new({
+  cloud_name: config.CLOUDINARY_CLOUD_NAME
+});
 
-        if (config.GOOGLE_ANALYTICS_ID) {
-            /* Make sure ReactGA is initialised in GlobalLifecycle.js */
-            ReactGA.pageview(window.location.pathname + window.location.search);
-        }
+class PageHOC extends Component {
+  componentDidMount() {
+    const { setNavTitle, pageTitle, toggleSidebar } = this.props;
 
-        if (config.FACEBOOK_PIXEL_ID) {
-            ReactPixel.pageView();
-        }
+    toggleSidebar(false);
+    setNavTitle(pageTitle);
+  }
 
-        toggleSidebar(false);
-        setNavTitle(pageTitle)
+  componentDidUpdate(prevProps) {
+    const { setNavTitle, toggleSidebar, pageTitle } = this.props;
+
+    if (prevProps.pageTitle !== pageTitle) {
+      setNavTitle(pageTitle);
+      toggleSidebar(false);
     }
-
-    componentDidUpdate(prevProps) {
-        const { setNavTitle, toggleSidebar, pageTitle } = this.props;
-
-        if (prevProps.pageTitle !== pageTitle) {
-            setNavTitle(pageTitle);
-            toggleSidebar(false);
+  }
+  render() {
+    const {
+      className,
+      children,
+      pageTitle,
+      metaDesc,
+      ogImageUrl,
+      ogImageTwitterUrl
+    } = this.props;
+    const canonicalUrl =
+      "https://" + window.location.hostname + window.location.pathname;
+    const animations = {
+      initial: {
+        opacity: 0,
+        transition: {
+          duration: 3
         }
-    }
-
-    render() {
-        const { className, children, pageTitle, metaDesc } = this.props;
-        const canonicalUrl = 'https://' + window.location.hostname + window.location.pathname;
-
-        return (
-            <div className={'Page--wrapper ' + className}>
-                <Helmet defaultTitle="Hel Tech | Hack the Future" titleTemplate="Hel Tech | %s">
-                    <link rel="canonical" href={canonicalUrl} />
-                    {config.IS_DEBUG ? <meta name="robots" content="noindex,nofollow" /> : <meta name="robots" content="index,follow" />}
-                    <title>{pageTitle}</title>
-                    <meta name="description" content={metaDesc} />
-                    <meta property="og:title" content={pageTitle} />
-                    <meta property="og:description" content={metaDesc} />
-                </Helmet>
-                {children}
-            </div>
-        )
-    }
+      },
+      visible: {
+        opacity: 1,
+        transition: {
+          duration: 0.7
+        }
+      },
+      exit: {
+        opacity: 0,
+        transition: {
+          duration: 0.3
+        }
+      }
+    };
+    return (
+      <div
+        initial="initial"
+        animate="visible"
+        exit="exit"
+        variants={animations}
+        className={"Page--wrapper " + className}
+      >
+        <Helmet
+          defaultTitle="Junction 2019 | Hack the Future"
+          titleTemplate="Junction 2019 | %s"
+        >
+          <link rel="canonical" href={canonicalUrl} />
+          <meta property="og:url" content={canonicalUrl} />
+          <title>{pageTitle}</title>
+          <meta name="robots" content="index,follow" />
+          <meta name="description" content={metaDesc} />
+          {/* OpenGraph properties */}
+          <meta property="og:title" content={"Junction 2019 | " + pageTitle} />
+          <meta property="og:description" content={metaDesc} />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content={ogImageUrl} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          {/* Twitter cards */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@hackJunction" />
+          <meta name="twitter:creator" content="@hackJunction" />
+          <meta name="twitter:title" content={"Junction 2019 | " + pageTitle} />
+          <meta name="twitter:description" content={metaDesc} />
+          <meta name="twitter:image" content={ogImageTwitterUrl} />
+        </Helmet>
+        {children}
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const { pageTitle, metaDesc, ogImage } = ownProps;
+  const content = getText(state);
+  const media = getMedia(state);
+  let ogImageUrl = ownProps.ogImageUrl;
+  let ogImageTwitterUrl = ownProps.ogImageUrl;
 
-    const { pageTitleKey, metaDescKey } = ownProps;
-    const content = selectContent(state);
+  if (media[ogImage]) {
+    ogImageUrl = cl.url(media[ogImage].public_id, {
+      width: 1200,
+      height: 630,
+      crop: "fill",
+      gravity: "center"
+    });
+    ogImageTwitterUrl = cl.url(media[ogImage].public_id, {
+      width: 1200,
+      height: 600,
+      crop: "fill",
+      gravity: "center"
+    });
+  }
 
-    return {
-        pageTitle: content[pageTitleKey] || ownProps.pageTitle,
-        metaDesc: content[metaDescKey] || ownProps.metaDesc
-    }
-}
+  return {
+    pageTitle: content[pageTitle] || ownProps.pageTitle,
+    metaDesc: content[metaDesc] || ownProps.metaDesc,
+    ogImageUrl,
+    ogImageTwitterUrl
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
-    setNavTitle: title => dispatch(NavActions.setNavTitle(title)),
-    toggleSidebar: open => dispatch(NavActions.toggleSidebar(open)),
+  setNavTitle: title => dispatch(NavActions.setNavTitle(title)),
+  toggleSidebar: open => dispatch(NavActions.toggleSidebar(open))
 });
-
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(PageHOC);

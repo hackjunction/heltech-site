@@ -1,0 +1,22 @@
+{
+  "connection": "default",
+  "collectionName": "staticcontent",
+  "info": {
+    "name": "textfield",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

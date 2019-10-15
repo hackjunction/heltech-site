@@ -1,40 +1,60 @@
-import * as ActionTypes from './actionTypes'
-import { handle } from 'redux-pack';
-import { map } from 'lodash-es';
+import * as ActionTypes from "./actionTypes";
+import { handle } from "redux-pack";
+import { reduce } from "lodash-es";
 
-export const initialState = {
-	keys: [],
-	data: {},
-	loading: false,
-	error: false,
-	lastUpdate: 0,
-}
+const initialState = {
+  textfields: {},
+  mediafields: {},
+  loading: false,
+  error: false,
+  lastUpdate: 0,
+  editorMode: false
+};
 
 export default function reducer(state = initialState, action) {
+  switch (action.type) {
+    case ActionTypes.UPDATE_STATIC_CONTENT: {
+      return handle(state, action, {
+        start: prevState => ({
+          ...prevState,
+          loading: true,
+          error: false
+        }),
+        finish: prevState => ({ ...prevState, loading: false }),
+        failure: prevState => ({ ...prevState, error: true }),
+        success: prevState => {
+          const { textfields, mediafields } = action.payload.data;
+          return {
+            ...prevState,
 
-	switch (action.type) {
-		case ActionTypes.UPDATE_STATIC_CONTENT: {
-			return handle(state, action, {
-				start: prevState => ({ ...prevState, loading: true, error: false }),
-				finish: prevState => ({ ...prevState, loading: false }),
-				failure: prevState => ({ ...prevState, error: true }),
-				success: prevState => {
-
-					const data = {}
-					const keys = map(action.payload, ({ key, content }) => {
-						data[key.trim()] = content;
-						return key.trim();
-					});
-
-					return {
-						...prevState,
-						data,
-						keys,
-						lastUpdate: Date.now()
-					}
-				},
-			})
-		}
-		default: return state;
-	}
+            textfields: reduce(
+              textfields,
+              (result, item) => {
+                result[item.key.trim()] = item;
+                return result;
+              },
+              {}
+            ),
+            mediafields: reduce(
+              mediafields,
+              (result, item) => {
+                result[item.key.trim()] = item;
+                return result;
+              },
+              {}
+            ),
+            lastUpdate: Date.now()
+          };
+        }
+      });
+    }
+    case ActionTypes.TOGGLE_EDITOR_MODE: {
+      return {
+        ...state,
+        editorMode: action.payload
+      };
+    }
+    default:
+      return state;
+  }
 }

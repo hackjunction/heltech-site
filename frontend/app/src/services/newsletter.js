@@ -1,13 +1,11 @@
-import axios from './jsonAxios'
-import config from './config'
+import axios from "./axios";
 
-const URL = config.API_BASE_URL + '/api/newsletter'
+const URL = "https://cms.www.heltech.org/api/newsletter";
 
 const NewsLetterService = {
+  create: formData => {
+    return axios.post(URL, formData);
+  }
+};
 
-	create: (formData) => {
-		return axios.post(URL, formData);
-	},
-}
-
-export default NewsLetterService
+export default NewsLetterService;

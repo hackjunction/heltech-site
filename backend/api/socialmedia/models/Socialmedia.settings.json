@@ -1,31 +1,30 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "socialmedia",
   "info": {
     "name": "socialmedia",
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
   },
   "attributes": {
     "uniqueId": {
-      "default": "",
       "type": "string"
     },
     "name": {
-      "default": "",
       "type": "string"
     },
     "link": {
-      "default": "",
       "type": "string"
     },
     "icon": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     }
   }
 }

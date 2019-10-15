@@ -6,27 +6,28 @@
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
   },
   "attributes": {
     "firstName": {
-      "default": "",
       "type": "string"
     },
     "lastName": {
-      "default": "",
       "type": "string"
     },
     "email": {
-      "default": "",
-      "type": "email"
+      "type": "string"
     },
     "message": {
-      "default": "",
       "type": "text"
     },
     "company": {
-      "default": "",
+      "type": "string"
+    },
+    "speciality": {
       "type": "string"
     }
   }

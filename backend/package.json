@@ -2,52 +2,45 @@
   "name": "backend",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application.",
-  "main": "./server.js",
+  "description": "A Strapi application",
   "scripts": {
-    "setup": "cd admin && npm run setup",
-    "start": "node server.js",
-    "strapi": "node_modules/strapi/bin/strapi.js",
-    "lint": "node_modules/.bin/eslint api/**/*.js config/**/*.js plugins/**/*.js",
-    "postinstall": "node node_modules/strapi/lib/utils/post-install.js"
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "lint": "eslint ."
   },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-react": "^7.7.0"
+    "babel-eslint": "^10.0.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-react": "^7.14.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "dotenv": "^7.0.0",
-    "find-config": "^1.0.0",
-    "html-creator": "^0.4.3",
-    "koa-static": "^5.0.0",
     "lodash": "^4.17.5",
-    "sanitize-html": "^1.20.0",
-    "strapi": "3.0.0-alpha.25",
-    "strapi-hook-mongoose": "3.0.0-alpha.25"
+    "react-apollo": "^3.1.2",
+    "strapi": "3.0.0-beta.16.5",
+    "strapi-admin": "3.0.0-beta.16.5",
+    "strapi-hook-mongoose": "3.0.0-beta.16.5",
+    "strapi-plugin-content-manager": "3.0.0-beta.16.5",
+    "strapi-plugin-content-type-builder": "3.0.0-beta.16.5",
+    "strapi-plugin-email": "3.0.0-beta.16.5",
+    "strapi-plugin-graphql": "^3.0.0-beta.16.5",
+    "strapi-plugin-settings-manager": "3.0.0-beta.16.5",
+    "strapi-plugin-upload": "3.0.0-beta.16.5",
+    "strapi-plugin-users-permissions": "3.0.0-beta.16.5",
+    "strapi-utils": "3.0.0-beta.16.5"
   },
   "author": {
-    "name": "juuso",
-    "email": "",
-    "url": ""
+    "name": "A Strapi developer"
   },
-  "maintainers": [
-    {
-      "name": "juuso",
-      "email": "",
-      "url": ""
-    }
-  ],
   "strapi": {
-    "packageManager": "npm",
-    "uuid": "0b26aee1-4603-4035-97f0-9e5c83d3157d"
+    "uuid": "3827635e-b6bc-4714-ba2a-262b39df3be4"
   },
   "engines": {
-    "node": ">= 10.0.0",
-    "npm": ">= 6.0.0"
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }

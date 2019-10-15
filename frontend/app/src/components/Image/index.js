@@ -1,63 +1,70 @@
-import React, { PureComponent } from 'react'
-import { Image as CloudinaryImage } from 'cloudinary-react'
-import './style.scss'
+import React, { PureComponent } from "react";
+import { Image as CloudinaryImage } from "cloudinary-react";
+import "./style.scss";
 
 class Image extends PureComponent {
+  constructor(props) {
+    super(props);
 
-	constructor(props) {
-		super(props)
+    this.state = {
+      loaded: false
+    };
 
-		this.state = {
-			loaded: false
-		}
+    this.setLoaded = this.setLoaded.bind(this);
+  }
 
-		this.setLoaded = this.setLoaded.bind(this);
-	}
+  setLoaded() {
+    this.setState({
+      loaded: true
+    });
+  }
 
-	setLoaded() {
-		this.setState({
-			loaded: true,
-		})
-	}
+  render() {
+    const {
+      image = {},
+      alt,
+      className,
+      width,
+      height,
+      crop = "fill",
+      gravity = "center"
+    } = this.props;
+    const { loaded } = this.state;
 
-	render() {
-		const { image = {}, alt, className, width, height, crop = 'fill', gravity = 'center' } = this.props;
-		const { loaded } = this.state;
+    if (image !== null && image.public_id) {
+      return (
+        <CloudinaryImage
+          className={`Image ${className} ${loaded ? "" : "Image-loading"}`}
+          alt={alt}
+          publicId={image.public_id}
+          onLoad={this.setLoaded}
+          transformation={{
+            quality: "auto",
+            fetchFormat: "auto",
+            width,
+            height,
+            crop,
+            gravity
+          }}
+        />
+      );
+    }
 
-		if (image !== null && image.public_id) {
-			return (
-				<CloudinaryImage
-					className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
-					alt={alt}
-					publicId={image.public_id}
-					onLoad={this.setLoaded}
-					transformation={{
-						quality: 'auto',
-						fetchFormat: 'auto',
-						width,
-						height,
-						crop,
-						gravity
-					}}
-				/>
-			)
-		}
+    if (!image) {
+      return null;
+    }
 
-		if (!image) {
-			return null;
-		}
-
-		return (
-			<img
-				src={image.url}
-				alt={alt}
-				className={`Image ${className} ${loaded ? '' : 'Image-loading'}`}
-				width={width}
-				height={height}
-				onLoad={this.setLoaded}
-			/>
-		)
-	}
+    return (
+      <img
+        src={image.url}
+        alt={alt}
+        className={`Image ${className} ${loaded ? "" : "Image-loading"}`}
+        width={width}
+        height={height}
+        onLoad={this.setLoaded}
+      />
+    );
+  }
 }
 
-export default Image
+export default Image;

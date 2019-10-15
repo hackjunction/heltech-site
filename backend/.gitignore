@@ -94,7 +94,6 @@ logs
 results
 node_modules
 .node_history
-package-lock.json
 
 
 ############################
@@ -105,7 +104,9 @@ testApp
 coverage
 
 ############################
-# Frontend build
+# Strapi
 ############################
-/build/
-.env
+
+exports
+.cache
+build

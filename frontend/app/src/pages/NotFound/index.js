@@ -1,27 +1,38 @@
-import React, { PureComponent } from 'react';
-import './style.scss';
+import React, { PureComponent } from "react";
+import "./style.scss";
+import { connect } from "react-redux";
 
-import HeaderImage from '../../components/HeaderImage';
-import BasicHeader from '../../components/HeaderImage/BasicHeader';
-import Divider from '../../components/Divider';
-import Page from '../PageHOC';
+import HeaderImage from "../../components/HeaderImage";
+import BasicHeader from "../../components/HeaderImage/BasicHeader";
+import Divider from "../../components/Divider";
+import Page from "../PageHOC";
 
-import MEDIA_KEYS from '../../redux/staticmedia/keys';
+import * as ContentSelectors from "../../redux/staticcontent/selectors";
 
 class NotFoundPage extends PureComponent {
-    render() {
-        return (
-            <Page className="NotFoundPage" pageTitle="404">
-                <HeaderImage
-                    imageKey={MEDIA_KEYS.notFoundPageHeaderImage}
-                    alt="Header image"
-                >
-                    <BasicHeader title={'Page not found'} body={"It seems like the page you were looking for doesn't exist..."} />
-                </HeaderImage>
-                <Divider lg />
-            </Page>
-        );
-    }
+  render() {
+    const { getMedia } = this.props;
+    return (
+      <Page className="NotFoundPage" pageTitle="404">
+        <HeaderImage
+          image={getMedia("notFoundPageHeaderImage")}
+          alt="Header image"
+        >
+          <BasicHeader
+            title={"Page not found"}
+            body={
+              "It seems like the page you were looking for doesn't exist..."
+            }
+          />
+        </HeaderImage>
+        <Divider lg />
+      </Page>
+    );
+  }
 }
 
-export default NotFoundPage
+const mapStateToProps = state => ({
+  getMedia: ContentSelectors.buildGetMedia(state)
+});
+
+export default connect(mapStateToProps)(NotFoundPage);

@@ -1,1 +1,1 @@
-export const UPDATE_SOCIAL_MEDIAS = 'socialmedias/UPDATE';
+export const UPDATE_SOCIAL_MEDIAS = "socialmedias/UPDATE";

@@ -6,36 +6,33 @@
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
   },
   "attributes": {
     "fullName": {
-      "default": "",
       "type": "string"
     },
     "title": {
-      "default": "",
       "type": "string"
     },
     "email": {
-      "default": "",
       "type": "string"
+    },
+    "priority": {
+      "type": "integer"
     },
     "image": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
+      "plugin": "upload"
     },
     "gif": {
       "model": "file",
       "via": "related",
-      "plugin": "upload",
-      "required": false
-    },
-    "priority": {
-      "default": 10,
-      "type": "integer"
+      "plugin": "upload"
     }
   }
 }

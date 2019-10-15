@@ -1,20 +1,19 @@
-import axios from './jsonAxios'
-import config from './config'
+import axios from "./axios";
 
-const URL = config.API_BASE_URL + '/api/socialmedias'
+const URL = "https://cms.www.heltech.org/api/socialmedias";
 
 const SocialMediaService = {
+  count: () => {
+    return axios.get(`${URL}/count`);
+  },
 
-	count: () => {
-		return axios.get(`${URL}/count`);
-	},
+  getAll: () => {
+    return axios.get(URL);
+  },
 
-	getAll: () => {
-		return axios.get(URL);
-	},
+  getOne: id => {
+    return axios.get(`${URL}/${id}`);
+  }
+};
 
-	getOne: (id) => {
-		return axios.get(`${URL}/${id}`);
-	}
-}
-export default SocialMediaService
+export default SocialMediaService;

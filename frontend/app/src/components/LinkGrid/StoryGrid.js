@@ -1,37 +1,25 @@
-import React, { useEffect } from 'react'
-import './style.scss'
+import React from "react";
+import "./style.scss";
 
-import { connect } from 'react-redux';
-import { map } from 'lodash-es';
-import { stories } from '../../redux/stories/selectors';
-import { updateStories } from '../../redux/stories/actions';
-import LinkGrid from './index.js';
+import { connect } from "react-redux";
+import { map } from "lodash-es";
+import { stories } from "../../redux/dynamiccontent/selectors";
+import LinkGrid from "./index.js";
 
-const StoryGrid = ({ stories, updateStories }) => {
+const StoryGrid = ({ stories }) => {
+  const items = map(stories, s => {
+    return {
+      image: s.logo,
+      url: s.website,
+      alt: s.name
+    };
+  });
 
-	useEffect(() => {
-		updateStories();
-	}, [])
+  return <LinkGrid links={items} />;
+};
 
-	const items = map(stories, s => {
-		return {
-			image: s.logo,
-			url: s.website,
-			alt: s.name,
-		}
-	})
+const mapStateToProps = state => ({
+  stories: stories(state)
+});
 
-	return (
-		<LinkGrid links={items} />
-	)
-}
-
-const mapStateToProps = (state) => ({
-	stories: stories(state)
-})
-
-const mapDispatchToProps = dispatch => ({
-	updateStories: () => dispatch(updateStories())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(StoryGrid)
+export default connect(mapStateToProps)(StoryGrid);

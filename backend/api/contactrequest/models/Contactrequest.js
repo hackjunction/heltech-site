@@ -1,9 +1,5 @@
 'use strict';
 
-const htmlCreator = require('html-creator');
-const sanitizeHtml = require('sanitize-html');
-
-
 /**
  * Lifecycle callbacks for the `Contactrequest` model.
  */
@@ -38,107 +34,7 @@ module.exports = {
 
   // After creating a value.
   // Fired after an `insert` query.
-  afterCreate: async (model, result) => {
-
-    const name = sanitizeHtml(model.firstName + ' ' + model.lastName);
-    const email = sanitizeHtml(model.email);
-    const reason = sanitizeHtml(model.reason);
-    const message = sanitizeHtml(model.message);
-
-    const msg = new htmlCreator([
-      {
-        type: 'body',
-        content: [
-          {
-            type: 'div',
-            content: [
-              {
-                type: 'h4',
-                content: 'Someone filled the contact form at heltech.org :)',
-              },
-              {
-                type: 'ul',
-                content: [
-                  {
-                    type: 'li',
-                    content: [
-                      {
-                        type: 'span',
-                        content: [
-                          {
-                            type: 'strong',
-                            content: 'Name: '
-                          },
-                          {
-                            type: 'span',
-                            content: name
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    type: 'li',
-                    content: [
-                      {
-                        type: 'span',
-                        content: [
-                          {
-                            type: 'strong',
-                            content: 'Email: '
-                          },
-                          {
-                            type: 'span',
-                            content: email
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    type: 'li',
-                    content: [
-                      {
-                        type: 'span',
-                        content: [
-                          {
-                            type: 'strong',
-                            content: 'Interested in: '
-                          },
-                          {
-                            type: 'span',
-                            content: reason
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ],
-              },
-              {
-                type: 'h4',
-                content: 'message: '
-              },
-              {
-                type: 'p',
-                content: '"' + message + '"'
-              }
-            ],
-          },
-        ],
-      },
-    ]);
-
-    if (strapi.config.currentEnvironment.partnerFormEmail) {
-      strapi.plugins['email'].services.email.send({
-        to: strapi.config.currentEnvironment.partnerFormEmail,
-        from: 'contact-form@heltech.org',
-        replyTo: 'heltech@hackjunction.com',
-        subject: 'heltech.org | Hello from ' + name,
-        html: msg.renderHTML(),
-      });
-    }
-  },
+  // afterCreate: async (model, result) => {},
 
   // Before updating a value.
   // Fired before an `update` query.
