@@ -61,7 +61,7 @@ class DevPage extends Component {
                 <Divider sm />
                 <SingleColumnSection title={getText('ticketsTitle')}>
                     <div className="EventBrite">
-                        <iframe src="https://eventbrite.fi/tickets-external?eid=69708065701&ref=etckt" frameBorder="0" height="393" width="100%" vspace="0" hspace="0" marginHeight="5" marginWidth="5" scrolling="auto" allowtransparency="true"></iframe>
+                        <iframe src="https://eventbrite.fi/tickets-external?eid=69708065701&ref=etckt" frameBorder="0" height="500" width="100%" vspace="0" hspace="0" marginHeight="5" marginWidth="5" scrolling="auto" allowtransparency="true"></iframe>
                         <div className="EventBriteInner">
                             <a className="powered-by-eb" target="_blank" href="https://www.eventbrite.fi/">
                             Powered by Eventbrite
