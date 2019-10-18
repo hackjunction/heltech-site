@@ -52,6 +52,8 @@ export const getDynamicContent = () => {
                     name
                     website
                     description
+                    mainPartner
+                    supportingPartner
                     logo {
                         url
                         public_id

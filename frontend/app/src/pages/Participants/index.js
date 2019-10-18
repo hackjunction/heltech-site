@@ -28,15 +28,15 @@ class ParticipantsPage extends PureComponent {
       <Page
         className="ParticipantsPage"
         pageTitle="For speakers"
-        metaDesc={getText("participantsPageSubtitle")} //empty
+        metaDesc={getText("participantsPageSubtitle")} 
       >
         <HeaderImage
-          image={getMedia("participantPageHeaderImage")} //empty
+          image={getMedia("participantPageHeaderImage")} 
           alt="Header image"
         >
           <BasicHeader
-            title={getText("participantsPageTitle")} //empty
-            body={getText("participantsPageSubtitle")} //empty
+            title={getText("participantsPageTitle")} 
+            body={getText("participantsPageSubtitle")} 
           />
         </HeaderImage>
         <Divider lg />

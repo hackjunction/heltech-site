@@ -44,19 +44,18 @@ class DevPage extends Component {
                     <Markdown source={getText('devPageFirstBody')} />
                 </BlockSection>
                 <Divider md />
-                <BlockSection
-                    title={getText('devPageSecondTitle')}
-                    subtitle={getText('devPageSecondSubtitle')}
-                >
-                    <Markdown source={getText('devPageSecondBody')} />
-                </BlockSection>
+             
                 <SingleColumnSection title={getText('speakersTitle')}>
                     <SpeakerCards type="new" />
                 </SingleColumnSection>
                 <Divider md />
                 
-                <SingleColumnSection title={getText('devPagePartnersTitle') }>
-                    <PartnerCards />
+                <SingleColumnSection title={getText('devPagePartnersTitle')||'Main Partners' }>
+                    <PartnerCards type="main"/>
+                </SingleColumnSection>
+                <Divider sm />
+                <SingleColumnSection title={getText('devPageSupportingPartnersTitle') ||'Supporting Partners'}>
+                    <PartnerCards type="support"/>
                 </SingleColumnSection>
                 <Divider sm />
                 <SingleColumnSection title={getText('ticketsTitle')}>

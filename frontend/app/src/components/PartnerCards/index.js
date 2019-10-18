@@ -3,7 +3,7 @@ import './style.scss';
 
 import { connect } from 'react-redux';
 
-import * as ContentSelecors from '../../redux/dynamiccontent/selectors';
+import * as ContentSelectors from '../../redux/dynamiccontent/selectors';
 
 import Image from '../Image';
 
@@ -21,8 +21,9 @@ const PartnerCards = props => {
                                 <Image
                                     image={partner.logo}
                                     className="PartnerCardGrid--item__img"
-                                    width={209}
-                                    height={290}
+                                    width={280}
+                                    height={280}
+                                    crop="fit"
                                 />
                             </div>
                             <a  
@@ -56,9 +57,20 @@ const PartnerCards = props => {
     );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state,ownProps) => {
+    const type=ownProps.type;
+    let partners;
+    if(type=='main'){
+        partners = ContentSelectors.mainPartners(state);
+    }
+    else if(type=='support'){
+        partners =  ContentSelectors.supportingPartners(state);
+    }
+    else{
+        partners = ContentSelectors.partners(state);
+    }
     return{
-        partners: ContentSelecors.partners(state)
+        partners: partners
     }
 };
 

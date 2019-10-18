@@ -44,10 +44,8 @@ import OldSpeakersPage from './pages/OldSpeakers'; */
 const HomePage = React.lazy(() => import('./pages/Home'));
 const ParticipantsPage = React.lazy(() => import('./pages/Participants'));
 const PartnersPage = React.lazy(() => import('./pages/Partners'));
-const ConceptsPage = React.lazy(() => import('./pages/Concepts'));
 const CalendarPage = React.lazy(() => import('./pages/Calendar'));
 const TeamPage = React.lazy(() => import('./pages/Team'));
-const ConceptPage = React.lazy(() => import('./pages/Concept'));
 const BasicPage = React.lazy(() => import('./pages/BasicPage'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFound'));
 const StoryPage = React.lazy(() => import('./pages/Story'));
@@ -116,11 +114,7 @@ class App extends Component {
                                     path="/partners"
                                     component={PartnersPage}
                                 />
-                                <Route
-                                    exact
-                                    path="/concepts"
-                                    component={ConceptsPage}
-                                />
+                                
                                 <Route
                                     exact
                                     path="/calendar"
@@ -136,11 +130,6 @@ class App extends Component {
                                     exact
                                     path="/past-speakers"
                                     component={OldSpeakersPage}
-                                />
-                                {/* Concept pages */}
-                                <Route
-                                    path="/concepts/:slug"
-                                    component={ConceptPage}
                                 />
 
                                 {/* Other pages */}

@@ -1,6 +1,6 @@
 import axios from "./axios";
 
-const URL = "https://cms.www.heltech.org/api/socialmedias";
+const URL = "https://cms.www.heltech.org/socialmedias";
 
 const SocialMediaService = {
   count: () => {

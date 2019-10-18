@@ -63,3 +63,16 @@ export const teammembersByPriority = createSelector(
         return data.sortBy('priority');
     }
 );
+
+export const mainPartners = createSelector(
+    partners,
+    data => {
+        return filter(data, 'mainPartner');
+    }
+)
+export const supportingPartners = createSelector(
+    partners,
+    data=>{
+        return filter(data, 'supportingPartner')
+    }
+)

@@ -31,13 +31,13 @@ class OldSpeakersPage extends Component {
                         body={getText('oldSpeakersSubtitle')}
                     />
                 </HeaderImage>
-                <BlockSection
+           {/*      <BlockSection
                     title={getText('oldSpeakersSection1Title')}
                     subtitle={getText('oldSpeakersSection1Subtitle')}
                 >
                     <Markdown source={getText('oldSpeakersSection1Body')} />
                 </BlockSection>
-
+ */}
                 <SingleColumnSection title={getText('oldSpeakersPastTitle')}>
                     <SpeakerCards type="old" />
                 </SingleColumnSection>

@@ -21,8 +21,8 @@ const SpeakerCards = props => {
                                 <Image
                                     image={speaker.image}
                                     className="SpeakerGrid--item__img"
-                                    width={290}
-                                    height={290}
+                                    width={310}
+                                    height={310}
                                 />
                             </div>
                             <div className="SpeakerGrid--item__flipper-back">
