@@ -76,7 +76,7 @@ class HomePage extends Component {
 
                 <SingleColumnSection
                     className="column"
-                    title="Upcoming events:"
+                    title={getText('homePageEvents')}
                 ></SingleColumnSection>
                 <EventCalendar />
                 <BlockSection
