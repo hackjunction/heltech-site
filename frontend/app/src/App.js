@@ -133,7 +133,7 @@ class App extends Component {
                                 />
 
                                 {/* Other pages */}
-                                <Route path="/:slug" component={BasicPage} />
+                                {/* <Route path="/:slug" component={BasicPage} /> */}
                                 <Route component={NotFoundPage} />
                             </Switch>
                         </AnimatePresence>

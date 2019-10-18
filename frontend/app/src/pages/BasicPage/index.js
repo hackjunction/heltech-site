@@ -72,8 +72,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     page: find(pages, p => p.slug === match.params.slug),
-    loading: pagesLoading(state),
-    error: pagesError(state)
+    loading: false,
+    error: false
   };
 };
 
