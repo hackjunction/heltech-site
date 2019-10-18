@@ -67,12 +67,10 @@
                 align-items: flex-start;
                 justify-content: flex-start;
                 flex-direction: column;
-                padding-top: 5px;
-                padding-left: 10px;
-                padding-right: 10px;
                 opacity: 0;
                 transition: ease-in 0.2s;
                 overflow: auto;
+                padding: 15px 30px;
 
                 -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
                 -moz-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -99,8 +97,9 @@
             font-style: italic;
         }
         &__desc {
-            font-size: 18px;
+            margin-top: 10px;
             line-height: 18px;
+            font-size: 14px;
         }
         &__img {
             width: 100%;
