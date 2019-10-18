@@ -8,6 +8,8 @@ import { partners } from '../../redux/dynamiccontent/selectors';
 import Image from '../Image';
 
 import LinkGrid from './index.js';
+import * as ContentSelectors from '../../redux/dynamiccontent/selectors';
+
 
 const PartnerLogoGrid = props => {
     const renderPartners = partners => {
@@ -39,21 +41,19 @@ const PartnerLogoGrid = props => {
         </div>
     );
 };
-/* 
-const PartnerLogoGrid = ({ partners }) => {
-  const items = map(partners, p => {
-    return {
-      image: p.logo,
-      url: p.website,
-      alt: p.name
-    };
-  });
-
-  return <LinkGrid links={items} />;
+ 
+const mapStateToProps = (state, ownProps) => {
+    const type = ownProps.type;
+    switch(type){
+        case 'main': 
+            return {partners:  ContentSelectors.mainPartners(state)}
+        case 'support' :
+            return{
+                partners: ContentSelectors.supportingPartners(state)
+            }
+        default:
+            return {partners: ContentSelectors.partners(state)}
+    }
 };
- */
-const mapStateToProps = state => ({
-    partners: partners(state)
-});
 
 export default connect(mapStateToProps)(PartnerLogoGrid);

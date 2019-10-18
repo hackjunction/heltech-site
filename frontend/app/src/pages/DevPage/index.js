@@ -8,7 +8,6 @@ import BlockSection from '../../components/BlockSection';
 
 
 import SpeakerCards from '../../components/SpeakerCards';
-import PartnerCards from '../../components/PartnerCards';
 
 import SingleColumnSection from '../../components/SingleColumnSection/';
 import Divider from '../../components/Divider';
@@ -18,6 +17,7 @@ import NewsLetterForm from '../../components/NewsLetterForm';
 import Page from '../PageHOC';
 
 import * as ContentSelectors from '../../redux/staticcontent/selectors';
+import PartnerLogoGrid from '../../components/LinkGrid/PartnerLogoGrid';
 
 class DevPage extends Component {
     render() {
@@ -50,12 +50,13 @@ class DevPage extends Component {
                 </SingleColumnSection>
                 <Divider md />
                 
-                <SingleColumnSection title={getText('devPagePartnersTitle')||'Main Partners' }>
-                    <PartnerCards type="main"/>
+                <SingleColumnSection title={getText('devPagePartnersTitle')||'Main Partners' }
+                >
+                    <PartnerLogoGrid type="main"/>
                 </SingleColumnSection>
                 <Divider sm />
                 <SingleColumnSection title={getText('devPageSupportingPartnersTitle') ||'Supporting Partners'}>
-                    <PartnerCards type="support"/>
+                    <PartnerLogoGrid type="support"/>
                 </SingleColumnSection>
                 <Divider sm />
                 <SingleColumnSection title={getText('ticketsTitle')}>
@@ -70,6 +71,7 @@ class DevPage extends Component {
                 </SingleColumnSection>
                 <Divider md />
                 <NewsLetterForm />
+                <Divider md />
             </Page>
         );
     }

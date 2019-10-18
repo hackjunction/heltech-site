@@ -12,7 +12,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: red;
 
         &__image {
             width: 80%;
@@ -28,7 +27,7 @@
     margin-right: -$padding-page;
 
     padding: $padding-page;
-
+    padding-top: 0;
     &--inner {
         display: flex;
         flex-direction: row;
