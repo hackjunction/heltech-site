@@ -43,7 +43,7 @@ class TeamPage extends PureComponent {
                     socialImg={require('../../assets/logos/social/linkedin-white.png')}
                     socialLink='https://www.linkedin.com/in/phuongnguyen18/'
                 >
-                    <p>Head of Heltech</p>
+                    <p>Head of Hel Tech</p>
                     <p>
                         <u>min.nguyen@hackjunction.com</u>
                     </p>
