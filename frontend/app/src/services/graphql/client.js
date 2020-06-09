@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import config from '../../config';
 
 const client = new ApolloClient({
-    uri: config.GRAPHQL_BASE_URL
+    uri: config.GRAPHQL_BASE_URL,
 });
 
 /***
@@ -26,7 +26,7 @@ export const getStaticContent = () => {
                     }
                 }
             }
-        `
+        `,
     });
 };
 
@@ -75,6 +75,6 @@ export const getDynamicContent = () => {
                     }
                 }
             }
-        `
+        `,
     });
 };

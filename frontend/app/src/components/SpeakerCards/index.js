@@ -7,32 +7,33 @@ import * as ContentSelecors from '../../redux/dynamiccontent/selectors';
 
 import Image from '../Image';
 
-const SpeakerCards = props => {
+const SpeakerCards = (props) => {
     const renderSpeakers = () => {
-        return props.speakers.map(speaker => {
+        console.log('sepek', props.speakers);
+        return props.speakers.map((speaker) => {
             return (
                 <div
-                    className="SpeakerGrid--item"
+                    className='SpeakerGrid--item'
                     key={speaker.name + speaker.topic}
                 >
-                    <div className="SpeakerGrid--item__top">
-                        <div className="SpeakerGrid--item__flipper">
-                            <div className="SpeakerGrid--item__flipper-front">
+                    <div className='SpeakerGrid--item__top'>
+                        <div className='SpeakerGrid--item__flipper'>
+                            <div className='SpeakerGrid--item__flipper-front'>
                                 <Image
                                     image={speaker.image}
-                                    className="SpeakerGrid--item__img"
+                                    className='SpeakerGrid--item__img'
                                     width={310}
                                     height={310}
                                 />
                             </div>
-                            <div className="SpeakerGrid--item__flipper-back">
-                                <span className="SpeakerGrid--item__name">
+                            <div className='SpeakerGrid--item__flipper-back'>
+                                <span className='SpeakerGrid--item__name'>
                                     {speaker.name}
                                 </span>
-                                <span className="SpeakerGrid--item__topic">
+                                <span className='SpeakerGrid--item__topic'>
                                     {speaker.topic}
                                 </span>
-                                <span className="SpeakerGrid--item__desc">
+                                <span className='SpeakerGrid--item__desc'>
                                     {speaker.description}
                                 </span>
                             </div>
@@ -43,8 +44,8 @@ const SpeakerCards = props => {
         });
     };
     return (
-        <div className="SpeakerGrid">
-            <div className="SpeakerGrid--items">{renderSpeakers()}</div>
+        <div className='SpeakerGrid'>
+            <div className='SpeakerGrid--items'>{renderSpeakers()}</div>
         </div>
     );
 };
@@ -64,7 +65,7 @@ const mapStateToProps = (state, ownProps) => {
             speakers = '';
     }
     return {
-        speakers: speakers
+        speakers: speakers,
     };
 };
 

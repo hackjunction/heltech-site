@@ -4,7 +4,7 @@
     "default": {
       "connector": "strapi-hook-mongoose",
       "settings": {
-        "database": "backend",
+        "database": "local-heltech-backend",
         "host": "127.0.0.1",
         "srv": false,
         "port": 27017,
