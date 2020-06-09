@@ -38,7 +38,7 @@ class TeamPage extends PureComponent {
                 <ImageBlockSection
                     imageSrc={require('../../assets/images/min.jpg')}
                     imagAlt={'Min Nguyen'}
-                    title='Kasper Henriksson'
+                    title='Min Nguyen'
                     subtitle='Helsinki, Finland.'
                     socialImg={require('../../assets/logos/social/linkedin-white.png')}
                     socialLink='https://www.linkedin.com/in/phuongnguyen18/'
