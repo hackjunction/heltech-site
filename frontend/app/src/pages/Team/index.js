@@ -36,29 +36,55 @@ class TeamPage extends PureComponent {
                     />
                 </HeaderImage>
                 <ImageBlockSection
-                    imageSrc={require('../../assets/images/kasper-headshot.jpg')}
-                    imagAlt={'Kasper Henriksson'}
+                    imageSrc={require('../../assets/images/min.jpg')}
+                    imagAlt={'Min Nguyen'}
                     title='Kasper Henriksson'
                     subtitle='Helsinki, Finland.'
                     socialImg={require('../../assets/logos/social/linkedin-white.png')}
-                    socialLink='https://www.linkedin.com/in/kasperhenriksson/'
+                    socialLink='https://www.linkedin.com/in/phuongnguyen18/'
                 >
                     <p>Head of Heltech</p>
                     <p>
-                        <u>kasper.henriksson@hackjunction.com</u>
+                        <u>min.nguyen@hackjunction.com</u>
                     </p>
                 </ImageBlockSection>
                 <ImageBlockSection
-                    imageSrc={require('../../assets/images/maiju-headshot.jpg')}
-                    imagAlt={'Maiju Aspegren'}
-                    title='Maiju Aspegren'
+                    imageSrc={require('../../assets/images/jolie.jpg')}
+                    imagAlt={'Jolie Pham'}
+                    title='Jolie Pham'
                     subtitle='Helsinki, Finland.'
                     socialImg={require('../../assets/logos/social/linkedin-white.png')}
-                    socialLink='https://fi.linkedin.com/in/maijuaspegren'
+                    socialLink='https://www.linkedin.com/in/joliekpham/'
                 >
-                    <p>Partnerships</p>
+                    <p>Social Media Marketing Specialist</p>
                     <p>
-                        <u>maiju.aspegren@hackjunction.com</u>
+                        <u>Jolie.pham134@gmail.com</u>
+                    </p>
+                </ImageBlockSection>
+                <ImageBlockSection
+                    imageSrc={require('../../assets/images/kai.jpg')}
+                    imagAlt={'Kai Nguyen'}
+                    title='Kai Nguyen'
+                    subtitle='Helsinki, Finland.'
+                    socialImg={require('../../assets/logos/social/linkedin-white.png')}
+                    socialLink='https://www.linkedin.com/in/imkai1995/'
+                >
+                    <p>Visual Designer</p>
+                    <p>
+                        <u>Imkai1995@gmail.com</u>
+                    </p>
+                </ImageBlockSection>
+                <ImageBlockSection
+                    imageSrc={require('../../assets/images/sofia.jpg')}
+                    imagAlt={'Sofia Leino'}
+                    title='Sofia Leino'
+                    subtitle='Helsinki, Finland.'
+                    socialImg={require('../../assets/logos/social/linkedin-white.png')}
+                    socialLink='https://www.linkedin.com/in/sofia-leino-654298156/'
+                >
+                    <p>Partnerships Manager</p>
+                    <p>
+                        <u>sofia.leino@hackjunction.com</u>
                     </p>
                 </ImageBlockSection>
                 <SingleColumnSection title='And our lovely volunteers! 💕'>
